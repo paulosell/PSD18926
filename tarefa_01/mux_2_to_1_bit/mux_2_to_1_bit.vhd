@@ -1,3 +1,4 @@
+-- Implemente um circuito multiplexador 2-para-1 com canal de dados de 1 bit.
 library ieee;
 use ieee.std_logic_1164.all;
 

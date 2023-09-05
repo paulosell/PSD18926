@@ -1,3 +1,9 @@
+-- Implemente um sistema digital baseado nos circuitos 1 e 2. O sistema deve
+-- possuir duas entradas de dado conectadas ao multiplexador 2-para-1, cuja saída de dado
+-- deve ser conectada à entrada de dado do demultiplexador 1-para 2. As saídas de dado do
+-- demultiplexador devem ser as saídas do sistema, o qual, além das duas entradas de dado,
+-- deve possuir duas entradas de controle correspondente aos seletores do multiplexador e do
+-- demultiplexador. 
 library ieee;
 use ieee.std_logic_1164.all;
 

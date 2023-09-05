@@ -1,3 +1,4 @@
+-- Implemente um circuito demultiplexador 1-para-2 com canal de dados de 1 bit.
 library ieee;
 use ieee.std_logic_1164.all;
 
