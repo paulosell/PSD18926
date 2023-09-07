@@ -4,6 +4,7 @@ db/
 incremental_db/
 simulation/
 .qws/
+*qws
 
 # ModelSim-related files and directories
 work/
@@ -12,7 +13,6 @@ modelsim.ini
 *.mti
 
 # Ignore Quartus and ModelSim project settings files (modify these as needed)
-*.qpf
 *.qsf
 *.mpf
 *.mpfs
