@@ -5,6 +5,7 @@ incremental_db/
 simulation/
 .qws/
 *qws
+*.txt
 
 # ModelSim-related files and directories
 work/

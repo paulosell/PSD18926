@@ -44,33 +44,3 @@ begin
     o_GRANT => o_GRANT);
 
 end arch;
-
-
----------------- definition of one hot
-library ieee;
-use ieee.std_logic_1164.all;
-
-entity one_hot is
-  port
-  (
-    i_REQ   : in std_logic_vector(3 downto 0);
-    o_GRANT : out std_logic_vector(3 downto 0)
-  );
-end one_hot;
-
-architecture arch of one_hot is
-begin
-  process (i_REQ)
-  begin
-    o_GRANT <= (others => '0');
-    if (i_REQ(0) = '1') then
-      o_GRANT(0) <= '1';
-    elsif (i_REQ(1) = '1') then
-      o_GRANT(1) <= '1';
-    elsif (i_REQ(2) = '1') then
-      o_GRANT(2) <= '1';
-    elsif (i_REQ(3) = '1') then
-      o_GRANT(3) <= '1';
-    end if;
-  end process;
-end arch;
