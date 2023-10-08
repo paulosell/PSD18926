@@ -4,6 +4,7 @@ Este repositório foi criado para armazenar materiais relacionados às aulas e p
 
 ## Descrição dos projetos:
 - [Tarefa 01](./tarefa_01/): Atividades introdutórias à VHDL;
+- [Tarefa 02](./tarefa_02/): Circuitos sequenciais e máquinas de estado;
 
 *Nota: Este sumário será atualizado à medida que novas tarefas e recursos forem adicionados ao repositório.*
 
