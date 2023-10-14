@@ -24,12 +24,8 @@ begin
       o_S0  => o_S0,
       o_S1  => o_S1
     );
-
-
   -- generate clock
   w_CLK <= not w_CLK after clk_period/2;
-
-
   p_STIMULUS : process
   begin
     wait for 10 ns;

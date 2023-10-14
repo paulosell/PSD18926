@@ -61,8 +61,6 @@ begin
     wait for 1.5 * clk_period;
     assert (o_Y = '1') report "Erro assert 4" severity error; -- sB
     wait for clk_period * 0.5;
-
-
     i_A <= '0';
     i_B <= '1';
     wait for 1.5 * clk_period;

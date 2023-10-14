@@ -4,7 +4,7 @@ entity watch_view_control is
   port
   (
     i_CLK : in std_logic; -- clock
-    i_B_n   : in std_logic; -- input B, works like a clock
+    i_B_n : in std_logic; -- input B, works like a clock
     o_S0  : out std_logic; -- data output
     o_S1  : out std_logic); -- data output
 end watch_view_control;
