@@ -21,7 +21,6 @@ begin
   process
   begin
     
-	 wait for 10ps;
     w_R <= "11111111";
 	 w_G <= "11111111";
 	 w_B <= "11111111";
