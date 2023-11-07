@@ -3,8 +3,9 @@ use ieee.std_logic_1164.all;
 
 entity celsius_to_fahrenheit is
 generic ( N : integer := 16);
-port ( i_C : in std_logic_vector(N-1 downto 0);
-       o_F : out std_logic_vector(N-1 downto 0));
+port ( 
+  i_C : in std_logic_vector(N-1 downto 0);
+  o_F : out std_logic_vector(N-1 downto 0));
 end entity;
 
 architecture celsius_to_fahrenheit_arch of celsius_to_fahrenheit is
@@ -17,20 +18,20 @@ signal w_SUM_IC_SHIFTED_7 : std_logic_vector(N-1 downto 0);
 
 component bit_shifter is
 generic (N      : integer := 16);
-port ( i_IN        : in std_logic_vector(N-1 downto 0);
-       i_PLACES    : in std_logic_vector(2 downto 0);
-       i_DIRECTION : in std_logic;
-       o_OUT       : out std_logic_vector(N-1 downto 0));
+port ( 
+  i_IN        : in std_logic_vector(N-1 downto 0);
+  i_PLACES    : in std_logic_vector(2 downto 0);
+  i_DIRECTION : in std_logic;
+  o_OUT       : out std_logic_vector(N-1 downto 0));
 end component;
 
 component adder is
 generic ( N : integer := 16);
-port ( i_A   : in std_logic_vector(N-1 downto 0);
-       i_B   : in std_logic_vector(N-1 downto 0);
-		 o_OUT : out std_logic_vector(N-1 downto 0));
+port ( 
+  i_A   : in std_logic_vector(N-1 downto 0);
+  i_B   : in std_logic_vector(N-1 downto 0);
+  o_OUT : out std_logic_vector(N-1 downto 0));
 end component;
-
-
 
 begin
 

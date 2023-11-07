@@ -4,9 +4,10 @@ use ieee.numeric_std.all;
 
 entity subtractor is
 generic (N : integer := 8);
-port ( i_A  : in std_logic_vector(N-1 downto 0);
-       i_B  : in std_logic_vector(N-1 downto 0);
-		 o_O : out std_logic_vector(N-1 downto 0));
+port ( 
+  i_A  : in std_logic_vector(N-1 downto 0);
+  i_B  : in std_logic_vector(N-1 downto 0);
+  o_O : out std_logic_vector(N-1 downto 0));
 end entity;
 
 architecture subtractor_arch of subtractor is

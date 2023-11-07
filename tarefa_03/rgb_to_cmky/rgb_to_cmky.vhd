@@ -3,13 +3,14 @@ use ieee.std_logic_1164.all;
 
 entity rgb_to_cmky is
 generic ( N : integer := 8 );
-port ( i_R : in std_logic_vector(N-1 downto 0);
-       i_G : in std_logic_vector(N-1 downto 0);
-		 i_B : in std_logic_vector(N-1 downto 0);
-		 o_C : out std_logic_vector(N-1 downto 0);
-		 o_M : out std_logic_vector(N-1 downto 0);
-		 o_K : out std_logic_vector(N-1 downto 0);
-		 o_Y : out std_logic_vector(N-1 downto 0));
+port (  
+  i_R : in std_logic_vector(N-1 downto 0);
+  i_G : in std_logic_vector(N-1 downto 0);
+  i_B : in std_logic_vector(N-1 downto 0);
+  o_C : out std_logic_vector(N-1 downto 0);
+  o_M : out std_logic_vector(N-1 downto 0);
+  o_K : out std_logic_vector(N-1 downto 0);
+  o_Y : out std_logic_vector(N-1 downto 0));
 end rgb_to_cmky; 
 
 architecture rgb_to_cmky_arch of rgb_to_cmky is
@@ -18,26 +19,29 @@ signal w_MIN_CM, w_K : std_logic_vector(N-1 downto 0);
 
 component rgb_to_cmy is
 generic ( N : integer := 8 );
-port ( i_R : in std_logic_vector(N-1 downto 0);
-       i_G : in std_logic_vector(N-1 downto 0);
-		 i_B : in std_logic_vector(N-1 downto 0);
-		 o_C : out std_logic_vector(N-1 downto 0);
-		 o_M : out std_logic_vector(N-1 downto 0);
-		 o_Y : out std_logic_vector(N-1 downto 0));
+port (  
+  i_R : in std_logic_vector(N-1 downto 0);
+  i_G : in std_logic_vector(N-1 downto 0);
+  i_B : in std_logic_vector(N-1 downto 0);
+  o_C : out std_logic_vector(N-1 downto 0);
+  o_M : out std_logic_vector(N-1 downto 0);
+  o_Y : out std_logic_vector(N-1 downto 0));
 end component;
 
 component minimum_comparator is
 generic ( N : integer := 8 );
-port ( i_A : in std_logic_vector(N-1 downto 0);
-       i_B : in std_logic_vector(N-1 downto 0);
-		 o_C : out std_logic_vector(N-1 downto 0));
+port (  
+  i_A : in std_logic_vector(N-1 downto 0);
+  i_B : in std_logic_vector(N-1 downto 0);
+  o_C : out std_logic_vector(N-1 downto 0));
 end component;
 
 component subtractor is
 generic ( N : integer := 8 );
-port ( i_A  : in std_logic_vector(N-1 downto 0);
-       i_B  : in std_logic_vector(N-1 downto 0);
-		 o_O : out std_logic_vector(N-1 downto 0));
+port (  
+  i_A  : in std_logic_vector(N-1 downto 0);
+  i_B  : in std_logic_vector(N-1 downto 0);
+  o_O : out std_logic_vector(N-1 downto 0));
 end component;
 begin
 

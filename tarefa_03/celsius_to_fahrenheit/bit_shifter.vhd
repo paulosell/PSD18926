@@ -4,10 +4,11 @@ use ieee.numeric_std.all;
 
 entity bit_shifter is
 generic (N      : integer := 16);
-port ( i_IN        : in std_logic_vector(N-1 downto 0);
-       i_PLACES    : in std_logic_vector(2 downto 0);
-       i_DIRECTION : in std_logic;
-       o_OUT       : out std_logic_vector(N-1 downto 0));
+port ( 
+  i_IN        : in std_logic_vector(N-1 downto 0);
+  i_PLACES    : in std_logic_vector(2 downto 0);
+  i_DIRECTION : in std_logic;
+  o_OUT       : out std_logic_vector(N-1 downto 0));
 end entity;
 
 architecture bit_shifter_arch of bit_shifter is
