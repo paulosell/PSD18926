@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity cin_ext is
+entity cinext is
   port
   (
     i_X   : in std_logic;
@@ -11,7 +11,7 @@ entity cin_ext is
     o_CIN : out std_logic);
 end entity;
 
-architecture cinext_arch of cin_ext is
+architecture cinext_arch of cinext is
   signal w_XYZ : std_logic_vector(2 downto 0);
 begin
 

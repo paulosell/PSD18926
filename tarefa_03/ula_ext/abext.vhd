@@ -3,8 +3,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity abext is
-  generic
-    (N : integer := 8);
   port
   (
     i_X : in std_logic;
