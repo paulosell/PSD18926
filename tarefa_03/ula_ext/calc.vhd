@@ -20,6 +20,7 @@ end entity;
 architecture calc_arch of calc is
 
   signal w_S : std_logic_vector(N - 1 downto 0);
+
   component alu
     generic
     (
@@ -52,32 +53,32 @@ architecture calc_arch of calc is
   end component;
 
 begin
-  alu_inst : entity work.alu
-    generic
-    map (
-    N => N
-    )
-    port map
-    (
-      i_X => i_X,
-      i_Y => i_Y,
-      i_Z => i_Z,
-      i_A => i_A,
-      i_B => i_B,
-      o_O => w_S
-    );
+  alu_inst : alu
+  generic
+  map (
+  N => N
+  )
+  port map
+  (
+    i_X => i_X,
+    i_Y => i_Y,
+    i_Z => i_Z,
+    i_A => i_A,
+    i_B => i_B,
+    o_O => w_S
+  );
 
-  reg_inst : entity work.reg
-    generic
-    map (
-    BIT_WIDTH => N
-    )
-    port
-    map (
-    i_CLK   => i_CLK,
-    i_RESET => '0',
-    i_LD    => i_LD,
-    i_D     => w_S,
-    o_Q     => o_O
-    );
+  reg_inst : reg
+  generic
+  map (
+  BIT_WIDTH => N
+  )
+  port
+  map (
+  i_CLK   => i_CLK,
+  i_RESET => '0',
+  i_LD    => i_LD,
+  i_D     => w_S,
+  o_Q     => o_O
+  );
 end calc_arch;

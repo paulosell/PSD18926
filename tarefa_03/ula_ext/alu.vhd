@@ -51,34 +51,34 @@ architecture alu_arch of alu is
     );
   end component;
 begin
-  al_extender_inst : entity work.al_extender
-    generic
-    map (
-    N => N
-    )
-    port map
-    (
-      i_X   => i_X,
-      i_Y   => i_Y,
-      i_Z   => i_Z,
-      i_A   => i_A,
-      i_B   => i_B,
-      o_A   => w_A,
-      o_B   => w_B,
-      o_CIN => w_CIN
-    );
+  al_extender_inst : al_extender
+  generic
+  map (
+  N => N
+  )
+  port map
+  (
+    i_X   => i_X,
+    i_Y   => i_Y,
+    i_Z   => i_Z,
+    i_A   => i_A,
+    i_B   => i_B,
+    o_A   => w_A,
+    o_B   => w_B,
+    o_CIN => w_CIN
+  );
 
-  adder_inst : entity work.adder
-    generic
-    map (
-    N => N
-    )
-    port
-    map (
-    i_CIN => w_CIN,
-    i_A   => w_A,
-    i_B   => w_B,
-    o_O   => o_O
-    );
+  adder_inst : adder
+  generic
+  map (
+  N => N
+  )
+  port
+  map (
+  i_CIN => w_CIN,
+  i_A   => w_A,
+  i_B   => w_B,
+  o_O   => o_O
+  );
 
 end alu_arch;

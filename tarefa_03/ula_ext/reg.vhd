@@ -10,7 +10,7 @@ entity reg is
   (
     i_CLK   : in std_logic; -- Clock input
     i_RESET : in std_logic; -- i_RESET input
-    i_LD : in std_logic; -- load input
+    i_LD    : in std_logic; -- load input
     i_D     : in std_logic_vector(BIT_WIDTH - 1 downto 0); -- Data input
     o_Q     : out std_logic_vector(BIT_WIDTH - 1 downto 0) -- Data output
   );
