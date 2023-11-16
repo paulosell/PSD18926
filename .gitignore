@@ -6,6 +6,7 @@ simulation/
 .qws/
 *qws
 *.txt
+!CMakeLists.txt
 *transcript*
 **done
 **sld
@@ -65,3 +66,6 @@ modelsim.ini
 *.dsn
 *.sof
 *.jic
+
+**/build/
+
