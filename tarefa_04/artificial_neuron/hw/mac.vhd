@@ -21,9 +21,9 @@ begin
   
   process(i_CLK, i_OLD_MAC, i_X, i_W)
   begin
-    if rising_edge(i_CLK) then
-	   w_NEW_MAC <= signed(i_OLD_MAC) + (signed(i_X) * signed(i_W));
-	 end if;
+	if rising_edge(i_CLK) then
+	  w_NEW_MAC <= signed(i_OLD_MAC) + (signed(i_X) * signed(i_W));
+	end if;
   end process;
   
   o_NEW_MAC <= std_logic_vector(w_NEW_MAC);
