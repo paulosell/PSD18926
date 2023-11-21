@@ -7,7 +7,7 @@ entity register_file_tb is
 end entity;
 
 architecture testbench of register_file_tb is
-signal w_CLK, w_RST , w_LOAD:  std_logic := '0';
+signal w_CLK, w_RST  std_logic := '0';
 signal w_MUX : std_logic_vector(1 downto 0) := (others => '0');
 signal w_X, w_W : std_logic_vector(7 downto 0) := (others => '0');
 constant c_CLK_PERIOD : time := 10 ns; 
@@ -18,7 +18,6 @@ begin
  port map (
    i_CLK => w_CLK, 
 	i_RST => w_RST,
-	i_LOAD => w_LOAD,
 	i_MUX => w_MUX,
 	o_X => w_X,
 	o_W => w_W);
@@ -33,10 +32,7 @@ begin
   
   process
   begin
-    w_RST <= '0';
-	 w_LOAD <= '1';
-	 wait for c_CLK_PERIOD;
-	 w_LOAD <='0';
+
     w_MUX <= "00";
 	 wait for c_CLK_PERIOD;
 	 assert (w_X = std_Logic_vector(to_signed(2, 8))) report "error @ w_X" severity error;

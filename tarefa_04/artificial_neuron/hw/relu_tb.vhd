@@ -9,7 +9,7 @@ end tb_relu;
 
 architecture relu_testbench of tb_relu is
 signal w_MAC, w_VALUE : std_logic_vector(15 downto 0) := (others => '0');
-signal w_CLK, w_START_RELU : std_logic;
+signal w_CLK, w_START_RELU, w_RELU_FINISHED : std_logic := '0';
 
 begin
 
@@ -18,7 +18,8 @@ begin
     i_MAC => w_MAC, 
 	 i_CLK => w_CLK,
 	 i_START_RELU => w_START_RELU,
-	 o_VALUE => w_VALUE);
+	 o_VALUE => w_VALUE,
+	 o_RELU_FINISHED => w_RELU_FINISHED);
 	 
   process
   begin
