@@ -7,6 +7,7 @@ entity relu is
 generic ( N : integer := 16);
 port (
   i_CLK : in std_logic;
+  i_RST : in std_logic;
   i_START_RELU : in std_logic;
   i_MAC   : in std_logic_vector(N-1 downto 0);
   o_VALUE : out std_logic_vector(N-1 downto 0);
@@ -19,9 +20,12 @@ signal w_RELU_FINISHED : std_logic := '0';
 
 begin
   
-  process(i_MAC, i_CLK)
+  process(i_CLK, i_RST, i_MAC, i_START_RELU)
   begin
-  if rising_edge(i_CLK) then
+  if i_RST = '1' then
+    w_RELU_FINISHED <= '0';
+	 w_VALUE <= (others => '0');
+  elsif rising_edge(i_CLK) then
     if (i_START_RELU = '1') then 
      if (signed(i_MAC) < 0) then
 	     w_VALUE <= (others => '0');

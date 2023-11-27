@@ -23,20 +23,25 @@ begin
 	 
   process
   begin
-    w_CLK <= '1';
-    wait for c_CLK_PERIOD / 2;
     w_CLK <= '0';
+    wait for c_CLK_PERIOD / 2;
+    w_CLK <= '1';
     wait for c_CLK_PERIOD / 2;
   end process;
   
   process
   begin
   
-
   w_GO <= '1';
+  w_RST <= '1';
+  wait for c_CLK_PERIOD;
+  assert (w_VALUE <= std_logic_vector(to_signed(0, w_VALUE'length))) report "Unexpected value @ w_VALUE" severity error;
+  
   w_RST <= '0';
-  wait for 1*c_CLK_PERIOD;
+  wait for c_CLK_PERIOD;
   w_GO <= '0';
+  wait for 4*c_CLK_PERIOD;
+  assert (w_VALUE <= std_logic_vector(to_signed(100, w_VALUE'length))) report "Unexpected value @ w_VALUE" severity error;
   wait;
   end process;
 end architecture; 

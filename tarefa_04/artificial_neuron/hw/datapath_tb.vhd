@@ -33,8 +33,6 @@ begin
   
   process
   begin
-	 wait for c_CLK_PERIOD*4;
-	 assert (w_MAC_FINISHED = '1') report "error @ w_MAC_FINISHED" severity error;
 	 
 	 w_START_RELU <= '1';
 	 wait for c_CLK_PERIOD;

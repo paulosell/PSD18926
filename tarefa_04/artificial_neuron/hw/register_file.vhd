@@ -20,40 +20,27 @@ type t_MUX is array (0 to 3) of std_logic_vector(7 downto 0);
 
 signal w_X : t_REGISTER_ARRAY := (to_signed(2,N),to_signed(4,N),to_signed(6,N), to_signed(8,N));
 signal w_W : t_REGISTER_ARRAY := (to_signed(1,N),to_signed(3,N),to_signed(5,N), to_signed(7,N));
-
-signal w_XMUX : t_MUX;
-signal w_WMUX : t_MUX;
 signal w_OX, w_OY : std_logic_vector(N-1 downto 0) := (others => '0');
-
-component reg is
-generic ( N : integer := 8);
-port (
-  i_CLK : in std_logic;
-  i_RST : in std_logic;
-  i_LOAD : in std_logic;
-  i_D   : in std_logic_vector(N-1 downto 0);
-  o_Q   : out std_logic_vector(N-1 downto 0));
-end component;
 
 begin
   
-  process(i_CLK, i_MUX)
+  process(i_CLK, i_MUX, i_START_MAC)
   begin
     if rising_edge(i_CLK) then
 	   if i_START_MAC = '1' then
-	   if i_MUX = "00" then
-		  w_OX <= std_logic_vector(w_X(0));
-		  w_OY <= std_logic_vector(w_W(0));
-		elsif i_MUX = "01" then
-		  w_OX <= std_logic_vector(w_X(1));
-		  w_OY <= std_logic_vector(w_W(1));
+	     if i_MUX = "00" then
+		    w_OX <= std_logic_vector(w_X(0));
+		    w_OY <= std_logic_vector(w_W(0));
+		  elsif i_MUX = "01" then
+		    w_OX <= std_logic_vector(w_X(1));
+		    w_OY <= std_logic_vector(w_W(1));
 		  elsif i_MUX = "10" then
-		  w_OX <= std_logic_vector(w_X(2));
-		  w_OY <= std_logic_vector(w_W(2));
+		    w_OX <= std_logic_vector(w_X(2));
+		    w_OY <= std_logic_vector(w_W(2));
 		  elsif i_MUX = "11" then
-		  w_OX <= std_logic_vector(w_X(3));
-		  w_OY <= std_logic_vector(w_W(3));
-		end if;	
+		    w_OX <= std_logic_vector(w_X(3));
+		    w_OY <= std_logic_vector(w_W(3));
+		  end if;	
       end if;	
     end if;
   end process;

@@ -11,7 +11,6 @@ port (
 end entity;
 
 architecture top_level_arch of top_level is
-signal w_MAC_FINISHED, w_RELU_FINISHED: std_logic := '0';
 
 component control is 
 generic ( N : integer := 8);
@@ -38,7 +37,8 @@ port (
 end component;
 
 signal w_START_MAC, w_START_RELU : std_logic := '0';
-signal w_X, w_W : std_logic_vector(N-1 downto 0) := (others => '0');
+signal w_MAC_FINISHED, w_RELU_FINISHED: std_logic := '0';
+signal w_VALUE, w_VALUE_CLK : std_logic_vector((N*2) - 1 downto 0) := (others => '0');
 
 begin
 
@@ -58,6 +58,15 @@ begin
 	 i_START_RELU => w_START_RELU, 
 	 o_MAC_FINISHED => w_MAC_FINISHED,
 	 o_RELU_FINISHED => w_RELU_FINISHED,	 
-	 o_VALUE => o_VALUE);
-  
+	 o_VALUE => w_VALUE);
+	 
+	 process(i_CLK)
+	 begin
+	   if rising_edge(i_CLK) then
+		  w_VALUE_CLK <= w_VALUE;
+		end if;
+   end process;
+	
+	o_VALUE <= w_VALUE_CLK;	 
+
 end architecture;
