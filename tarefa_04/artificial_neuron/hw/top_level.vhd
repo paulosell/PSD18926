@@ -7,6 +7,7 @@ port (
   i_CLK : in std_logic;
   i_RST : in std_logic;
   i_GO : in std_logic;
+  o_RDY : out std_logic;
   o_VALUE : out std_logic_vector ((N*2)-1 downto 0));
 end entity;
 
@@ -36,7 +37,7 @@ port (
   o_VALUE : out std_logic_vector((N*2) - 1 downto 0));
 end component;
 
-signal w_START_MAC, w_START_RELU : std_logic := '0';
+signal w_START_MAC, w_START_RELU, w_RDY : std_logic := '0';
 signal w_MAC_FINISHED, w_RELU_FINISHED: std_logic := '0';
 signal w_VALUE, w_VALUE_CLK : std_logic_vector((N*2) - 1 downto 0) := (others => '0');
 
@@ -64,9 +65,11 @@ begin
 	 begin
 	   if rising_edge(i_CLK) then
 		  w_VALUE_CLK <= w_VALUE;
+		  w_RDY <= w_RELU_FINISHED;
 		end if;
    end process;
 	
 	o_VALUE <= w_VALUE_CLK;	 
+	o_RDY <= w_RDY;
 
 end architecture;
