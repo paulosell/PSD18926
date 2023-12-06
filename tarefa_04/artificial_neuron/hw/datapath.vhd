@@ -54,20 +54,30 @@ signal w_NEW_MAC : std_logic_vector((N*2)-1 downto 0) := (others => '0');
 signal w_MAC_FINISHED, w_RELU_FINISHED : std_logic := '0';
 signal w_VALUE : std_logic_vector(15 downto 0);
 
+signal w_X0 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(1, 8));
+signal w_X1 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(3, 8));
+signal w_X2 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(5, 8));
+signal w_X3 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(7, 8));
+
+signal w_W0 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(2, 8));
+signal w_W1 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(4, 8));
+signal w_W2 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(6, 8));
+signal w_W3 : std_logic_vector(N-1 downto 0) := std_logic_vector(to_signed(8, 8));
+
 begin
    
   u_mac : mac port map(
     i_CLK => i_CLK, 
 	 i_RST => i_RST,
 	 i_START_MAC => i_START_MAC,
-	 i_X0 => std_logic_vector(to_signed(1, 8)),
-	 i_X1 => std_logic_vector(to_signed(3, 8)),
-	 i_X2 => std_logic_vector(to_signed(5, 8)),
-	 i_X3 => std_logic_vector(to_signed(7, 8)),
-	 i_W0 => std_logic_vector(to_signed(2, 8)),
-	 i_W1 => std_logic_vector(to_signed(4, 8)),
-	 i_W2 => std_logic_vector(to_signed(6, 8)),
-	 i_W3 => std_logic_vector(to_signed(-8, 8)),	
+	 i_X0 => w_X0,
+	 i_X1 => w_X1,
+	 i_X2 => w_X2,
+	 i_X3 => w_X3,
+	 i_W0 => w_W0,
+	 i_W1 => w_W1,
+	 i_W2 => w_W2,
+	 i_W3 => w_W3,
 	 o_MAC_FINISHED => w_MAC_FINISHED,
 	 o_MAC => w_NEW_MAC);
   
