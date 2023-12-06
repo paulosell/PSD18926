@@ -1,11 +1,11 @@
-# PSDPSD18926 - Projetos de Sistemas Digitais
+# PSDPSD18926 - Digital Systems Design Projects
 
-Este repositório foi criado para armazenar materiais relacionados às aulas e projetos da disciplina de Projetos de Sistemas Digitais (PSD18926) do programa de mestrado em Computação Aplicada da Universidade do Vale do Itajaí, durante o semestre 2023/2.
+This repository was created to store materials related to the classes and projects of the Digital Systems Design (PSD18926) course in the Applied Computing master's program at the University of Vale do Itajaí, during the 2023/2 semester.
 
-## Descrição dos projetos:
-- [Tarefa 01](./tarefa_01/): Atividades introdutórias à VHDL;
-- [Tarefa 02](./tarefa_02/): Circuitos sequenciais e máquinas de estado;
-- [Tarefa 03](./tarefa_03/): Componentes de blocos operacionais e *datapaths*;
+## Project Descriptions:
+- [Task 01](./task_01/): Introductory activities to VHDL;
+- [Task 02](./task_02/): Sequential circuits and state machines;
+- [Task 03](./task_03/): Operational block components and datapaths;
+- [Task 04](./task_04/): Artificial neuron implemented in hardware using RTL design methodology.
 
-*Nota: Este sumário será atualizado à medida que novas tarefas e recursos forem adicionados ao repositório.*
-
+*Note: This summary will be updated as new tasks and resources are added to the repository.*
